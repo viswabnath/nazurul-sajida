@@ -67,10 +67,6 @@ function optimizeForMobile() {
         }
     }
 
-    // Call optimized functions
-    createStars();
-    createParticles();
-
     // Disable dragon animation on mobile
     const dragonFly = document.querySelector('.dragon-fly');
     if (dragonFly) {
@@ -93,40 +89,6 @@ function optimizeForMobile() {
             techLine.style.width = '100%';
         }
     }
-}
-
-// Wait for config.js to load
-if (window.firebaseConfig) {
-    firebase.initializeApp(window.firebaseConfig);
-    const database = firebase.database();
-    const visitorCountRef = database.ref('visitorCount');
-
-    // Update visitor count
-    function updateVisitorCount() {
-        visitorCountRef.transaction((currentCount) => {
-            return (currentCount || 0) + 1;
-        }).catch((error) => {
-            console.error("Visitor count update failed:", error);
-        });
-    }
-
-    // Display visitor count
-    function displayVisitorCount() {
-        visitorCountRef.on('value', (snapshot) => {
-            if (snapshot.exists()) {
-                document.getElementById('visitor-count').textContent = snapshot.val();
-            } else {
-                document.getElementById('visitor-count').textContent = "0";
-            }
-        }, (error) => {
-            console.error("Error fetching visitor count:", error);
-        });
-    }
-
-    updateVisitorCount();
-    displayVisitorCount();
-} else {
-    console.error("Firebase config not loaded!");
 }
 
 // Create stars for background
@@ -239,8 +201,6 @@ function handleEvents() {
     }
 }
 
-// No need for updateAnniversaryCounter function as we're using the existing countdown section
-
 // Update timeline items based on date
 function updateTimelineItems(now, weddingDate, receptionDate) {
     // Get all timeline items
@@ -309,14 +269,11 @@ function updateCountdown(targetDate) {
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    console.log(`Updating countdown for ${targetDate}`);
     document.getElementById("countdown-days").textContent = days;
     document.getElementById("countdown-hours").textContent = hours;
     document.getElementById("countdown-minutes").textContent = minutes;
     document.getElementById("countdown-seconds").textContent = seconds;
 }
-
-
 
 // Calculate journey days
 function calculateJourneyDays() {
@@ -332,6 +289,49 @@ function calculateJourneyDays() {
     document.getElementById("sajida-journey-days").textContent = sajidaDays.toLocaleString();
     document.getElementById("combined-journey-days").textContent = combinedDays.toLocaleString();
 }
+
+function initializeFirebase() {
+    if (window.firebaseConfig) {
+        firebase.initializeApp(window.firebaseConfig);
+        console.log("✅ Firebase Initialized Successfully!");
+
+        const database = firebase.database();
+        const visitorCountRef = database.ref('visitorCount');
+
+        // Update visitor count
+        function updateVisitorCount() {
+            visitorCountRef.transaction((currentCount) => {
+                return (currentCount || 0) + 1;
+            }).catch((error) => {
+                console.error("Visitor count update failed:", error);
+            });
+        }
+
+        // Display visitor count
+        function displayVisitorCount() {
+            visitorCountRef.on('value', (snapshot) => {
+                if (snapshot.exists()) {
+                    document.getElementById('visitor-count').textContent = snapshot.val();
+                } else {
+                    document.getElementById('visitor-count').textContent = "0";
+                }
+            }, (error) => {
+                console.error("Error fetching visitor count:", error);
+            });
+        }
+
+        updateVisitorCount();
+        displayVisitorCount();
+
+    } else {
+        console.warn("⚠️ Firebase config not loaded yet. Retrying...");
+        setTimeout(initializeFirebase, 500); // Retry after 500ms
+    }
+}
+
+// Start Firebase Initialization
+initializeFirebase();
+
 
 // Initialize everything when the page loads
 window.onload = function () {
