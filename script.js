@@ -291,14 +291,13 @@ function calculateJourneyDays() {
 }
 
 function initializeFirebase() {
-    if (window.firebaseConfig) {
+    if (window.firebaseConfig && window.firebaseConfig.apiKey) {
         firebase.initializeApp(window.firebaseConfig);
         console.log("✅ Firebase Initialized Successfully!");
-
+        
         const database = firebase.database();
         const visitorCountRef = database.ref('visitorCount');
 
-        // Update visitor count
         function updateVisitorCount() {
             visitorCountRef.transaction((currentCount) => {
                 return (currentCount || 0) + 1;
@@ -307,7 +306,6 @@ function initializeFirebase() {
             });
         }
 
-        // Display visitor count
         function displayVisitorCount() {
             visitorCountRef.on('value', (snapshot) => {
                 if (snapshot.exists()) {
@@ -322,15 +320,15 @@ function initializeFirebase() {
 
         updateVisitorCount();
         displayVisitorCount();
-
     } else {
-        console.warn("⚠️ Firebase config not loaded yet. Retrying...");
-        setTimeout(initializeFirebase, 500); // Retry after 500ms
+        console.warn("⚠️ Firebase config not loaded. Retrying...");
+        setTimeout(initializeFirebase, 500);
     }
 }
 
-// Start Firebase Initialization
 initializeFirebase();
+
+
 
 
 // Initialize everything when the page loads
