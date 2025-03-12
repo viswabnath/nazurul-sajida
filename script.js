@@ -95,9 +95,9 @@ function optimizeForMobile() {
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD2yDdpK2ZV_npTAIf9hslHcUAbNzWa80Q",
+  apiKey: process.env.FIREBASE_API_KEY,
   authDomain: "nazurul-sajida-wc.firebaseapp.com",
-  databaseURL: "https://nazurul-sajida-wc-default-rtdb.firebaseio.com",
+  databaseURL: process.env.FIREBASE_DATABASE_URL,
   projectId: "nazurul-sajida-wc",
   storageBucket: "nazurul-sajida-wc.firebasestorage.app",
   messagingSenderId: "669024462281",
