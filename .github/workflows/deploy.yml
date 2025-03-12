@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # ✅ Update to deploy from master branch
 
 jobs:
   deploy:
@@ -18,5 +18,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: .  # Deploy root directory
+          branch: gh-pages  # ✅ Deploys to GitHub Pages branch
+          folder: .  # Deploys root directory
