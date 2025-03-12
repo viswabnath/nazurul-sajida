@@ -27,3 +27,4 @@ jobs:
           token: ${{ secrets.GH_PAT }}  # 🔥 Use PAT for authentication
           clean: false  # ✅ Prevents deleting config.js
           force: true   # ✅ Ensures config.js is included
+          single-commit: true  # ✅ Prevents history issues
