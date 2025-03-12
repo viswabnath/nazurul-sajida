@@ -14,7 +14,10 @@ jobs:
 
       - name: Inject Firebase Config
         run: |
-          echo "window.firebaseConfig = ${{ secrets.FIREBASE_CONFIG }};" > config.js cat config.js  # 🔥 Debug: Print contents of config.js
+           echo "Creating config.js..."
+           echo "window.firebaseConfig = ${{ secrets.FIREBASE_CONFIG }};" > config.js
+           ls -la   # 🔥 Debug: Show all files
+           cat config.js  # 🔥 Debug: Print config.js content
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -22,3 +25,5 @@ jobs:
           branch: gh-pages
           folder: .
           token: ${{ secrets.GH_PAT }}  # 🔥 Use PAT for authentication
+          clean: false  # ✅ Prevents deleting config.js
+          force: true   # ✅ Ensures config.js is included
