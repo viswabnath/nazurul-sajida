@@ -1,5 +1,7 @@
 # Wedding Website - Nazurul & Sajida
 
+https://viswabnath.github.io/nazurul-sajida
+
 ## Overview
 This is a beautifully crafted wedding website for Nazurul and Sajida, featuring:
 - A **countdown timer** to the wedding and reception
