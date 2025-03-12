@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazurul & Sajida's Epic Tech-Fantasy Journey</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics-compat.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Background Elements -->
+    <div class="bg-container">
+        <div class="stars"></div>
+        <div class="tech-particles" id="particles"></div>
+        <div class="ocean-overlay"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <!-- Dragon Animation -->
+    <div class="dragon-fly"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>The Epic Union of Nazurul & Sajida</h1>
+        <h2>"Where Stark Technologies Meets Westeros Wisdom"</h2>
+        <div class="tech-line">sudo apt-get install eternal-love && npm run happiness --forever</div>
+    </header>
+
+    <div class="container">
+        <!-- House Banners -->
+        <div class="house-banners">
+            <div class="banner fade-in" style="animation-delay: 0.2s;">
+                <h3>House Nazurul</h3>
+                <div class="sigil">
+                    <div class="sigil-tech"></div>
+                    <div class="sigil-symbol">⚛️</div>
+                </div>
+                <p>"Code, Game, Conquer"</p>
+                <p>Tech Mahindra</p>
+                <div class="skills">Node.js • Java • Gaming</div>
+                <p><small>Young but mighty, the brother who's always looking up to his awesome big sis!</small></p>
+            </div>
+
+            <div class="banner fade-in" style="animation-delay: 0.4s;">
+                <h3>House Sajida</h3>
+                <div class="sigil">
+                    <div class="sigil-tech"></div>
+                    <div class="sigil-symbol">🐉</div>
+                </div>
+                <p>"Knowledge Is Our Weapon"</p>
+                <p>Cognizant</p>
+                <div class="skills">SQL • Facets • Healthcare IT</div>
+                <p><small>The protector and mentor to one little sister, ruling the sibling kingdom!</small></p>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <div class="timeline-item fade-in" style="animation-delay: 1s;">
+                <div class="timeline-content">
+                    <div class="timeline-date">September 7, 1995</div>
+                    <h3 class="timeline-title">Birth of Nazurul</h3>
+                    <p>A future tech wizard enters the world in Godavari Basin.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in" style="animation-delay: 1.2s;">
+                <div class="timeline-content left">
+                    <div class="timeline-date">January 19, 1998</div>
+                    <h3 class="timeline-title">Birth of Sajida</h3>
+                    <p>A mastermind is born in the coastal regions.</p>
+                </div>
+            </div>
+
+
+
+            <div class="timeline-item fade-in" style="animation-delay: 1.6s;">
+                <div class="timeline-content left">
+                    <div class="timeline-date">January 19 2025</div>
+                    <h3 class="timeline-title">Fated Meeting</h3>
+                    <p>Their paths cross on a joint project, beginning their epic tale.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in" style="animation-delay: 1.8s;">
+                <div class="timeline-content">
+                    <div class="timeline-date">February 23 2025</div>
+                    <h3 class="timeline-title">The Engagement</h3>
+                    <p>Nazurul proposes to Sajida with a custom chatbot that pops the question.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in" style="animation-delay: 2s;">
+                <div class="timeline-content left">
+                    <div class="timeline-date">June 15, 2025</div>
+                    <h3 class="timeline-title">Wedding Day</h3>
+                    <p>The union of two great houses is celebrated in grand style.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in" style="animation-delay: 2.4s;">
+                <div class="timeline-content left">
+                    <div class="timeline-date">June 17, 2025</div>
+                    <h3 class="timeline-title">Reception Day</h3>
+                    <p>The joyous celebration continues as friends and family gather to honor the union and share in the
+                        festivities.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Journey Counter -->
+<div class="journey-counter fade-in" style="animation-delay: 0.6s;">
+    <h2>Their Destined Journey</h2>
+    <div class="counter-grid">
+        
+        <!-- Nazurul's Journey -->
+        <div class="counter-box">
+            <h3 class="counter-title">🚀 Nazurul’s Life Journey</h3>
+            <div class="counter-value" id="Nazurul-journey-days">10,778</div>
+            <p class="counter-desc">
+                A journey of tech wizardry, caffeine-fueled coding marathons, 
+                and an epic wait for destiny to introduce him to Sajida.
+            </p> <br>
+            <ul class="counter-desc">
+                <li>📅 Lived through <b>3,626 Mondays</b> (survived every one of them ☕).</li>
+                <li>🌅 Witnessed <b>10,778 sunrises</b> but probably hit snooze on half.</li>
+                <li>🖥️ Spent over <b>900 million seconds</b> breathing, coding, and debugging!</li>
+            </ul>
+        </div>
+
+        <!-- Sajida's Journey -->
+        <div class="counter-box">
+            <h3 class="counter-title">🐉 Sajida’s Life Journey</h3>
+            <div class="counter-value" id="sajida-journey-days">9,913</div>
+            <p class="counter-desc">
+                A tale of resilience, strategic thinking, and a destiny 
+                written in SQL queries, leading her to Nazurul.
+            </p> <br>
+            <ul class="counter-desc">
+                <li>👑 Conquered <b>9,913 days</b> like a true queen of the realm.</li>
+                <li>💻 Spent <b>23,791,200 minutes</b> crushing SQL queries & life goals!</li>
+                <li>🎬 Could have binge-watched <b>Game of Thrones 4,500 times</b> (with bathroom breaks!).</li>
+            </ul>
+        </div>
+
+        <!-- Combined Journey -->
+        <div class="counter-box">
+            <h3 class="counter-title">💖 Their Combined Journey</h3>
+            <div class="counter-value" id="combined-journey-days">20,691</div>
+            <p class="counter-desc">
+                Two parallel paths finally aligned, proving that some destinies 
+                are written not in the stars, but in lines of code.
+            </p> <br>
+            <ul class="counter-desc">
+                <li>⏳ A total of <b>20,691 days</b> of existence, learning, gaming, coding, and love!</li>
+                <li>✨ That’s <b>29,793,840,000 milliseconds</b> of fate working its magic!</li>
+                <li>🚀 If every day were a step, they could have walked <b>halfway to the moon! 🌙</b></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+        <!-- Story Section -->
+        <div class="story-section fade-in" style="animation-delay: 0.8s;">
+            <h2>The Tale of Two Coasts</h2>
+            <div class="story-content">
+                <p>In the coastal lands of the Godavari Basin, on <span class="highlight"> September 7, 1995 </span> a
+                    boy named Nazurul was born with a relentless curiosity and the spark of an inventor. Much like Tony
+                    Stark, he was captivated by technology and gaming from the moment he could understand them. His mind
+                    raced with ideas, his creativity shining as bright as the Arc Reactor itself. As he grew, his
+                    mastery of Node.js and Java shaped him into a powerhouse backend developer, designing chatbots so
+                    advanced they could almost pass the Turing test.</p>
+                <p>Meanwhile, On <span class="highlight">January 19, 1998</span> a brilliant girl named Sajida was born
+                    in the heart of the coastal lands. As she grew older, her family’s journey took them to the shores
+                    of Vizag, a city where steel plants forged futures and where Sajida’s mind was sharpened like the
+                    edge of Valyrian steel. Much like the strategic genius of Tyrion Lannister, she faced every academic
+                    challenge with brilliance and poise, mastering complex systems with ease. Her deep expertise in
+                    healthcare IT systems made her a force to be reckoned with in any kingdom she entered.</p>
+
+                <div class="quote-block"> "In the world of technology and life, you either innovate or fade away.
+                    There’s no room for anything less than extraordinary." </div>
+                <p>Their journey was written by fate. In the heart of the Godavari Basin, Nazurul was destined to be
+                    more than just an inventor. With a mind as sharp as Tony Stark's and a passion for gaming and
+                    coding, he carved his path as a talented backend developer, creating innovative solutions that
+                    pushed the boundaries of technology. Yet, destiny had more in store for him.</p>
+                <p>On the other side, Sajida’s path was equally inspiring. A brilliant mind with a strategic approach to
+                    life, she embraced every challenge with the precision of a master tactician. Her skills in
+                    healthcare IT and problem-solving made her an unstoppable force, but like Nazurul, she too was
+                    destined for something greater. Their meeting wasn’t just chance – it was fate’s design.</p>
+                <p>From the very moment their paths crossed through an arranged marriage, the connection was undeniable.
+                    What began as a union of two families soon grew into something far deeper. Their bond, stronger than
+                    any line of code or algorithm, blossomed into a partnership built on mutual respect, shared values,
+                    and the kind of understanding that goes beyond words. As they navigated their journey together, they
+                    realized they were more than just a perfect match—they were two halves of the same whole.</p>
+                <p>Like <span class="highlight">Jon Snow and Daenerys Targaryen</span> (but with a far happier twist!),
+                    their union would combine the strengths of two worlds—Nazurul’s tech-savvy spirit and Sajida’s
+                    wisdom and grace. Different backgrounds, different experiences, yet perfectly complementing each
+                    other in ways only true love can.</p>
+                <p>Now, they are ready to embark on their greatest adventure yet—building a future together, where love,
+                    laughter, and family come first. Their love story will not just be about shared dreams and goals,
+                    but about creating a legacy that blends the best of both their worlds into something timeless.</p>
+
+            </div>
+        </div>
+
+        <!-- Events Section -->
+        <div class="events-section fade-in" style="animation-delay: 2.4s;">
+            <h2>The Celebration Schedule</h2>
+            <div class="events-grid">
+
+
+                <div class="event-card">
+                    <div class="event-icon">👰‍♀️🤵‍♂️</div>
+                    <h3 class="event-title">Wedding Ceremony</h3>
+                    <div class="event-date">June 15, 2025 •</div>
+                    <p class="event-location">Visakhapatnam.</p>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-icon">🥂</div>
+                    <h3 class="event-title">Reception</h3>
+                    <div class="event-date">June 17, 2025 •</div>
+                    <p class="event-location">Kakinada.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Countdown -->
+        <div class="countdown-section fade-in" style="animation-delay: 2.2s;">
+            <h2 class="countdown-title">Countdown to the Grand Union</h2>
+            <div class="countdown-display">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="countdown-days"></div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="countdown-hours"></div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="countdown-minutes"></div>
+                    <div class="countdown-label">Mins</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="countdown-seconds"></div>
+                    <div class="countdown-label">Secs</div>
+                </div>
+            </div>
+            <p class="countdown-message">
+                "And so their watch begins. The wedding shall unite two powerful houses in a bond stronger than Valyrian
+                steel and more enduring than Stark honor. All loyal subjects are commanded to attend."
+            </p>
+        </div>
+
+
+
+        <div class="anniversary-counter" id="anniversary-counter">
+            <h3 id="anniversary-title">Time Since Our Union:</h3>
+            <div class="anniversary-value" id="anniversary-value">0 days, 0 hours, 0 minutes</div>
+        </div>
+
+        <!-- Quote Section -->
+        <div class="quote-section fade-in" style="animation-delay: 2.8s;">
+            <div class="quote">
+                "In the journey of life, marriage is the bridge that unites two souls, and love is the foundation that
+                keeps it strong. Together, we build, grow, and bond as one."
+            </div>
+            <div class="quote-author">- Nazurul & Sajida</div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer">
+        <p>© 2025 The Grand Union of Nazurul & Sajida</p>
+        <p>"From Binary to Bound Forever"</p>
+
+        <div class="visitor-counter">
+            <h3>You are visitor #<span id="visitor-count">0</span></h3>
+        </div>
+
+        <div class="hashtags">
+            <div class="hashtag">#InfinityNazurulSajida</div>
+            <div class="hashtag">#NazurulAndSajidaEndgame</div>
+            <div class="hashtag">#NazSajForeverWinterIsOver</div>
+        </div>
+
+
+
+        <div class="credits">
+            Designed with <span class="heart">❤️</span> for #HouseNazurulAndSajida by <a
+                href="https://onemark.co.in" target="_blank" style="color: rgb(0, 157, 255);">Onemark</a>
+        </div>
+    </footer>
+
+
+
+</body>
