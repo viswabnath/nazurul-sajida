@@ -295,24 +295,22 @@ function calculateJourneyDays() {
 
 // Initialize Firebase
 function initializeFirebase() {
-    if (typeof firebase === "undefined") {
-        console.error("Firebase SDK not loaded.");
-        return;
-    }
-
+    // Initialize Firebase with your config
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
-    } else {
-        console.warn("Firebase already initialized.");
     }
-
-    updateVisitorCount(firebase.database());
+    
+    // Get database reference
+    const database = firebase.database();
+    
+    // Update visitor count
+    updateVisitorCount(database);
 }
 
 // Update visitor count in Firebase
 function updateVisitorCount(database) {
     const visitorCountRef = database.ref('visitorCount');
-
+    
     // Transaction to safely increment the count
     visitorCountRef.transaction((currentCount) => {
         return (currentCount || 0) + 1;
@@ -336,8 +334,8 @@ function displayVisitorCount(count) {
         visitorCountElement.className = 'visitor-counter';
         document.body.appendChild(visitorCountElement);
     }
-
-    visitorCountElement.textContent = `:${count}`;
+    
+    visitorCountElement.textContent = `: ${count}`;
 }
 
 // Initialize everything when the page loads
