@@ -291,39 +291,50 @@ function calculateJourneyDays() {
 }
 
 function initializeFirebase() {
+    // Check if Firebase is already initialized
+    if (firebase.apps.length > 0) {
+        console.log("Firebase already initialized");
+        setupVisitorCounter();
+        return;
+    }
+    
+    // Try to get config from window
     if (window.firebaseConfig && window.firebaseConfig.apiKey) {
         firebase.initializeApp(window.firebaseConfig);
         console.log("✅ Firebase Initialized Successfully!");
-        
-        const database = firebase.database();
-        const visitorCountRef = database.ref('visitorCount');
-
-        function updateVisitorCount() {
-            visitorCountRef.transaction((currentCount) => {
-                return (currentCount || 0) + 1;
-            }).catch((error) => {
-                console.error("Visitor count update failed:", error);
-            });
-        }
-
-        function displayVisitorCount() {
-            visitorCountRef.on('value', (snapshot) => {
-                if (snapshot.exists()) {
-                    document.getElementById('visitor-count').textContent = snapshot.val();
-                } else {
-                    document.getElementById('visitor-count').textContent = "0";
-                }
-            }, (error) => {
-                console.error("Error fetching visitor count:", error);
-            });
-        }
-
-        updateVisitorCount();
-        displayVisitorCount();
+        setupVisitorCounter();
     } else {
         console.warn("⚠️ Firebase config not loaded. Retrying...");
         setTimeout(initializeFirebase, 500);
     }
+}
+
+function setupVisitorCounter() {
+    const database = firebase.database();
+    const visitorCountRef = database.ref('visitorCount');
+
+    function updateVisitorCount() {
+        visitorCountRef.transaction((currentCount) => {
+            return (currentCount || 0) + 1;
+        }).catch((error) => {
+            console.error("Visitor count update failed:", error);
+        });
+    }
+
+    function displayVisitorCount() {
+        visitorCountRef.on('value', (snapshot) => {
+            if (snapshot.exists()) {
+                document.getElementById('visitor-count').textContent = snapshot.val();
+            } else {
+                document.getElementById('visitor-count').textContent = "0";
+            }
+        }, (error) => {
+            console.error("Error fetching visitor count:", error);
+        });
+    }
+
+    updateVisitorCount();
+    displayVisitorCount();
 }
 
 initializeFirebase();
