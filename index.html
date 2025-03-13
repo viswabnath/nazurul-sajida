@@ -8,27 +8,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@400;700&display=swap"
         rel="stylesheet">
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics-compat.js"></script>
-    <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <link rel="stylesheet" href="styles.css">
-    
+
     <script src="config.js"></script>
-    <script>
-        // Try to load local config for development
-        if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-            const script = document.createElement('script');
-            script.src = 'config.local.js';
-            document.head.appendChild(script);
-        }
-    </script>
     <script src="script.js" defer></script>
 
-    
+
 </head>
 
 <body>
@@ -137,57 +124,57 @@
 
 
         <!-- Journey Counter -->
-<div class="journey-counter fade-in" style="animation-delay: 0.6s;">
-    <h2>Their Destined Journey</h2>
-    <div class="counter-grid">
-        
-        <!-- Nazurul's Journey -->
-        <div class="counter-box">
-            <h3 class="counter-title">🚀 Nazurul’s Life Journey</h3>
-            <div class="counter-value" id="Nazurul-journey-days">10,778</div>
-            <p class="counter-desc">
-                A journey of tech wizardry, caffeine-fueled coding marathons, 
-                and an epic wait for destiny to introduce him to Sajida.
-            </p> <br>
-            <ul class="counter-desc">
-                <li>📅 Lived through <b>3,626 Mondays</b> (survived every one of them ☕).</li>
-                <li>🌅 Witnessed <b>10,778 sunrises</b> but probably hit snooze on half.</li>
-                <li>🖥️ Spent over <b>900 million seconds</b> breathing, coding, and debugging!</li>
-            </ul>
-        </div>
+        <div class="journey-counter fade-in" style="animation-delay: 0.6s;">
+            <h2>Their Destined Journey</h2>
+            <div class="counter-grid">
 
-        <!-- Sajida's Journey -->
-        <div class="counter-box">
-            <h3 class="counter-title">🐉 Sajida’s Life Journey</h3>
-            <div class="counter-value" id="sajida-journey-days">9,913</div>
-            <p class="counter-desc">
-                A tale of resilience, strategic thinking, and a destiny 
-                written in SQL queries, leading her to Nazurul.
-            </p> <br>
-            <ul class="counter-desc">
-                <li>👑 Conquered <b>9,913 days</b> like a true queen of the realm.</li>
-                <li>💻 Spent <b>23,791,200 minutes</b> crushing SQL queries & life goals!</li>
-                <li>🎬 Could have binge-watched <b>Game of Thrones 4,500 times</b> (with bathroom breaks!).</li>
-            </ul>
-        </div>
+                <!-- Nazurul's Journey -->
+                <div class="counter-box">
+                    <h3 class="counter-title">🚀 Nazurul’s Life Journey</h3>
+                    <div class="counter-value" id="Nazurul-journey-days">10,778</div>
+                    <p class="counter-desc">
+                        A journey of tech wizardry, caffeine-fueled coding marathons,
+                        and an epic wait for destiny to introduce him to Sajida.
+                    </p> <br>
+                    <ul class="counter-desc">
+                        <li>📅 Lived through <b>3,626 Mondays</b> (survived every one of them ☕).</li>
+                        <li>🌅 Witnessed <b>10,778 sunrises</b> but probably hit snooze on half.</li>
+                        <li>🖥️ Spent over <b>900 million seconds</b> breathing, coding, and debugging!</li>
+                    </ul>
+                </div>
 
-        <!-- Combined Journey -->
-        <div class="counter-box">
-            <h3 class="counter-title">💖 Their Combined Journey</h3>
-            <div class="counter-value" id="combined-journey-days">20,691</div>
-            <p class="counter-desc">
-                Two parallel paths finally aligned, proving that some destinies 
-                are written not in the stars, but in lines of code.
-            </p> <br>
-            <ul class="counter-desc">
-                <li>⏳ A total of <b>20,691 days</b> of existence, learning, gaming, coding, and love!</li>
-                <li>✨ That’s <b>29,793,840,000 milliseconds</b> of fate working its magic!</li>
-                <li>🚀 If every day were a step, they could have walked <b>halfway to the moon! 🌙</b></li>
-            </ul>
-        </div>
+                <!-- Sajida's Journey -->
+                <div class="counter-box">
+                    <h3 class="counter-title">🐉 Sajida’s Life Journey</h3>
+                    <div class="counter-value" id="sajida-journey-days">9,913</div>
+                    <p class="counter-desc">
+                        A tale of resilience, strategic thinking, and a destiny
+                        written in SQL queries, leading her to Nazurul.
+                    </p> <br>
+                    <ul class="counter-desc">
+                        <li>👑 Conquered <b>9,913 days</b> like a true queen of the realm.</li>
+                        <li>💻 Spent <b>23,791,200 minutes</b> crushing SQL queries & life goals!</li>
+                        <li>🎬 Could have binge-watched <b>Game of Thrones 4,500 times</b> (with bathroom breaks!).</li>
+                    </ul>
+                </div>
 
-    </div>
-</div>
+                <!-- Combined Journey -->
+                <div class="counter-box">
+                    <h3 class="counter-title">💖 Their Combined Journey</h3>
+                    <div class="counter-value" id="combined-journey-days">20,691</div>
+                    <p class="counter-desc">
+                        Two parallel paths finally aligned, proving that some destinies
+                        are written not in the stars, but in lines of code.
+                    </p> <br>
+                    <ul class="counter-desc">
+                        <li>⏳ A total of <b>20,691 days</b> of existence, learning, gaming, coding, and love!</li>
+                        <li>✨ That’s <b>29,793,840,000 milliseconds</b> of fate working its magic!</li>
+                        <li>🚀 If every day were a step, they could have walked <b>halfway to the moon! 🌙</b></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
 
 
 
@@ -321,8 +308,8 @@
 
 
         <div class="credits">
-            Designed with <span class="heart">❤️</span> for #HouseNazurulAndSajida by <a
-                href="https://onemark.co.in" target="_blank" style="color: rgb(0, 157, 255);">Onemark</a>
+            Designed with <span class="heart">❤️</span> for #HouseNazurulAndSajida by <a href="https://onemark.co.in"
+                target="_blank" style="color: rgb(0, 157, 255);">Onemark</a>
         </div>
     </footer>
 
