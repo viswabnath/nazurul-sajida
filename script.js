@@ -290,63 +290,60 @@ function calculateJourneyDays() {
     document.getElementById("combined-journey-days").textContent = combinedDays.toLocaleString();
 }
 
+
+
+
+// Initialize Firebase
 function initializeFirebase() {
-    // Check if Firebase is already initialized
-    if (firebase.apps.length > 0) {
-        console.log("Firebase already initialized");
-        setupVisitorCounter();
-        return;
+    // Initialize Firebase with your config
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
     }
     
-    // Try to get config from window
-    if (window.firebaseConfig && window.firebaseConfig.apiKey) {
-        firebase.initializeApp(window.firebaseConfig);
-        console.log("✅ Firebase Initialized Successfully!");
-        setupVisitorCounter();
-    } else {
-        console.warn("⚠️ Firebase config not loaded. Retrying...");
-        setTimeout(initializeFirebase, 500);
-    }
-}
-
-function setupVisitorCounter() {
+    // Get database reference
     const database = firebase.database();
-    const visitorCountRef = database.ref('visitorCount');
-
-    function updateVisitorCount() {
-        visitorCountRef.transaction((currentCount) => {
-            return (currentCount || 0) + 1;
-        }).catch((error) => {
-            console.error("Visitor count update failed:", error);
-        });
-    }
-
-    function displayVisitorCount() {
-        visitorCountRef.on('value', (snapshot) => {
-            if (snapshot.exists()) {
-                document.getElementById('visitor-count').textContent = snapshot.val();
-            } else {
-                document.getElementById('visitor-count').textContent = "0";
-            }
-        }, (error) => {
-            console.error("Error fetching visitor count:", error);
-        });
-    }
-
-    updateVisitorCount();
-    displayVisitorCount();
+    
+    // Update visitor count
+    updateVisitorCount(database);
 }
 
-initializeFirebase();
+// Update visitor count in Firebase
+function updateVisitorCount(database) {
+    const visitorCountRef = database.ref('visitorCount');
+    
+    // Transaction to safely increment the count
+    visitorCountRef.transaction((currentCount) => {
+        return (currentCount || 0) + 1;
+    }).then((result) => {
+        // Display the updated count
+        if (result.committed) {
+            displayVisitorCount(result.snapshot.val());
+        }
+    }).catch((error) => {
+        console.error("Error updating visitor count:", error);
+    });
+}
 
-
-
+// Display visitor count on the page
+function displayVisitorCount(count) {
+    // Create or update visitor count element
+    let visitorCountElement = document.getElementById('visitor-count');
+    if (!visitorCountElement) {
+        visitorCountElement = document.createElement('div');
+        visitorCountElement.id = 'visitor-count';
+        visitorCountElement.className = 'visitor-counter';
+        document.body.appendChild(visitorCountElement);
+    }
+    
+    visitorCountElement.textContent = `${count}`;
+}
 
 // Initialize everything when the page loads
 window.onload = function () {
     createStars();
     createParticles();
     calculateJourneyDays();
+    initializeFirebase(); // Add this line
 
     // Initial event handling
     handleEvents();

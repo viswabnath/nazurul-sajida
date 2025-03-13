@@ -27,3 +27,8 @@ jobs:
           clean: false  # Prevents deleting config.js
           force: true   # Ensures config.js is included
           single-commit: true  # Prevents history issues
+          
+      - name: Update Firebase Config
+        run: |
+         echo "window.firebaseConfig = JSON.parse('${{ secrets.FIREBASE_CONFIG }}');" > config.js
+         cat config.js # Print the content to verify
