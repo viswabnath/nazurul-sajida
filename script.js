@@ -293,57 +293,12 @@ function calculateJourneyDays() {
 
 
 
-// Initialize Firebase
-function initializeFirebase() {
-    // Initialize Firebase with your config
-    if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-    }
-    
-    // Get database reference
-    const database = firebase.database();
-    
-    // Update visitor count
-    updateVisitorCount(database);
-}
-
-// Update visitor count in Firebase
-function updateVisitorCount(database) {
-    const visitorCountRef = database.ref('visitorCount');
-    
-    // Transaction to safely increment the count
-    visitorCountRef.transaction((currentCount) => {
-        return (currentCount || 0) + 1;
-    }).then((result) => {
-        // Display the updated count
-        if (result.committed) {
-            displayVisitorCount(result.snapshot.val());
-        }
-    }).catch((error) => {
-        console.error("Error updating visitor count:", error);
-    });
-}
-
-// Display visitor count on the page
-function displayVisitorCount(count) {
-    // Create or update visitor count element
-    let visitorCountElement = document.getElementById('visitor-count');
-    if (!visitorCountElement) {
-        visitorCountElement = document.createElement('div');
-        visitorCountElement.id = 'visitor-count';
-        visitorCountElement.className = 'visitor-counter';
-        document.body.appendChild(visitorCountElement);
-    }
-    
-    visitorCountElement.textContent = `: ${count}`;
-}
 
 // Initialize everything when the page loads
 window.onload = function () {
     createStars();
     createParticles();
     calculateJourneyDays();
-    initializeFirebase(); // Add this line
 
     // Initial event handling
     handleEvents();

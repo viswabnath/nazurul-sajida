@@ -3,7 +3,6 @@
 
 > *"Where Stark Technologies Meets Westeros Wisdom"*
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-66fcf1?style=for-the-badge&logo=github&logoColor=black)](https://viswabnath.github.io/nazurul-sajida/)
 
 A visually stunning, interactive wedding website designed to celebrate the union of Nazurul and Sajida. This project blends a modern **Tech/Stark** aesthetic with **Fantasy/Game of Thrones** elements, featuring real-time data tracking, dynamic countdowns, and immersive animations.
 
@@ -20,11 +19,6 @@ A visually stunning, interactive wedding website designed to celebrate the union
 
 * **Destiny Algorithm:** Calculates exactly how many days Nazurul and Sajida lived, breathed, and existed **before** their fated meeting.
 * **Fun Stats:** Includes whimsical calculations like "Mondays Survived," "Coffee Consumed," and "SQL Queries Written."
-
-### 👀 Live Visitor Tracking
-
-* **Real-Time Analytics:** Integrated with **Firebase Realtime Database**.
-* **Live Updates:** The visitor count updates instantly across all open devices whenever a new guest arrives, without requiring a page refresh.
 
 ### 🎨 Immersive UX/UI
 
@@ -44,7 +38,6 @@ A visually stunning, interactive wedding website designed to celebrate the union
 | --- | --- | --- |
 | **Frontend** | HTML5, CSS3 | Structure, Animations, Glassmorphism UI |
 | **Logic** | Vanilla JavaScript (ES6+) | Countdowns, DOM Manipulation, Date Math |
-| **Backend** | Firebase Realtime Database | Storing and syncing visitor counts |
 | **Fonts** | Google Fonts | *Cinzel* (Headers), *Montserrat* (Body) |
 
 ---
@@ -59,39 +52,7 @@ cd nazurul-sajida
 
 ```
 
-### 2. Firebase Setup (Crucial for Visitor Counter)
-
-1. Go to the [Firebase Console](https://www.google.com/search?q=https://console.firebase.google.com/).
-2. Create a project and enable **Realtime Database**.
-3. **Security Rules:** Instead of leaving the database open, use these rules to allow *only* incrementing the counter (prevents data deletion/hacking):
-
-```json
-{
-  "rules": {
-    "visits": {
-      ".read": true,
-      ".write": "newData.val() === data.val() + 1 || (!data.exists() && newData.val() === 1)"
-    }
-  }
-}
-
-```
-
-4. Copy your **Web App Configuration** (apiKey, projectId, etc.).
-5. Open `index.html` (or `script.js` if separated) and update the config object:
-
-```javascript
-const firebaseConfig = {
-    apiKey: "YOUR_ACTUAL_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    // ... other config lines
-};
-
-```
-
-### 3. Customization
+### 2. Customization
 
 To adapt this for another couple, edit the following variables in the JavaScript section:
 
@@ -119,38 +80,26 @@ const brideJourney = Math.floor((fatedMeeting - brideBirth) / msPerDay);
 animateCounter("groom-element-id", groomJourney);
 
 ```
-
-### Transactional Visitor Count
-
-We use a Firebase transaction to ensure accuracy even if two people visit at the exact same millisecond:
-
-```javascript
-const counterRef = firebase.database().ref('visits');
-counterRef.transaction((currentVisits) => {
-    return (currentVisits || 0) + 1;
-});
-
-```
-
 ---
 
 ## 🐛 Troubleshooting
 
 | Issue | Solution |
 | --- | --- |
-| **Counter stays at "..." or 0** | Check your internet connection. Verify `firebaseConfig` keys are correct. Check Browser Console (F12) for CORS errors. |
 | **Animations lag on mobile** | Reduce the particle count in the `script.js` loop (change `i < 50` to `i < 20`). |
 | **Dates are wrong** | Ensure date strings are in `MM/DD/YYYY` format to avoid timezone confusion. |
 
 ---
 
-## 💛 Credits & Attribution
 
-**Project:** The Epic Union of Nazurul & Sajida
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-66fcf1?style=for-the-badge&logo=github&logoColor=black)](https://nazurul-sajida.netlify.app)
 
-**Status:** 🚀 Deployed & Live
 
-Designed, Developed & Crafted with ❤️ by **[OneMark](https://www.google.com/search?q=)**.
+## 💛 Credits 
 
 > *"From Binary to Bound Forever"*
+
+Designed with ❤️  for #HouseNazurulAndSajida by **[OneMark](https://www.google.com/search?q=)**.
+
+
 
