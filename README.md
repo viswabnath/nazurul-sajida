@@ -1,8 +1,9 @@
 
-
 # 💍 Nazurul & Sajida's Epic Tech-Fantasy Wedding
 
 > *"Where Stark Technologies Meets Westeros Wisdom"*
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-66fcf1?style=for-the-badge&logo=github&logoColor=black)](https://viswabnath.github.io/nazurul-sajida/)
 
 A visually stunning, interactive wedding website designed to celebrate the union of Nazurul and Sajida. This project blends a modern **Tech/Stark** aesthetic with **Fantasy/Game of Thrones** elements, featuring real-time data tracking, dynamic countdowns, and immersive animations.
 
@@ -29,12 +30,10 @@ A visually stunning, interactive wedding website designed to celebrate the union
 
 * **Theme:** Dark mode with Royal Gold (`#d4af37`) and Neon Cyan (`#66fcf1`) accents.
 * **Animations:**
-* Floating Tech Particles (Canvas/CSS).
-* Parallax Stars.
-* Flying Dragon Animation.
-* Smooth Scroll Reveal (`IntersectionObserver`).
-
-
+  * Floating Tech Particles (Canvas/CSS).
+  * Parallax Stars.
+  * Flying Dragon Animation.
+  * Smooth Scroll Reveal (`IntersectionObserver`).
 * **Responsive:** Fully optimized for Mobile, Tablet, and Desktop.
 
 ---
@@ -55,16 +54,17 @@ A visually stunning, interactive wedding website designed to celebrate the union
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/viswabnath/nazurul-sajida.git
+git clone [https://github.com/viswabnath/nazurul-sajida.git](https://github.com/viswabnath/nazurul-sajida.git)
 cd nazurul-sajida
 
 ```
 
 ### 2. Firebase Setup (Crucial for Visitor Counter)
 
-1. Go to the [Firebase Console]().
+1. Go to the [Firebase Console](https://www.google.com/search?q=https://console.firebase.google.com/).
 2. Create a project and enable **Realtime Database**.
 3. **Security Rules:** Instead of leaving the database open, use these rules to allow *only* incrementing the counter (prevents data deletion/hacking):
+
 ```json
 {
   "rules": {
@@ -77,9 +77,9 @@ cd nazurul-sajida
 
 ```
 
-
 4. Copy your **Web App Configuration** (apiKey, projectId, etc.).
 5. Open `index.html` (or `script.js` if separated) and update the config object:
+
 ```javascript
 const firebaseConfig = {
     apiKey: "YOUR_ACTUAL_API_KEY",
@@ -90,8 +90,6 @@ const firebaseConfig = {
 };
 
 ```
-
-
 
 ### 3. Customization
 
@@ -149,8 +147,10 @@ counterRef.transaction((currentVisits) => {
 ## 💛 Credits & Attribution
 
 **Project:** The Epic Union of Nazurul & Sajida
+
 **Status:** 🚀 Deployed & Live
 
-Designed, Developed & Crafted with ❤️ by **[OneMark]()**.
+Designed, Developed & Crafted with ❤️ by **[OneMark](https://www.google.com/search?q=)**.
 
 > *"From Binary to Bound Forever"*
+
